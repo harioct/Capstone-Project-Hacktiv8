@@ -1,0 +1,24 @@
+/* Navbar */
+.nav a {
+  font-size: 18px;
+}
+
+.nav-link {
+  color: gray !important;
+  font-weight: 500;
+}
+
+.nav-link.active {
+  color: black !important;
+}
+
+.cart-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+.cart-item input {
+  width: 50px;
+  margin-left: 10px;
+}
