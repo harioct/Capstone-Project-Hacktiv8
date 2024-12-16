@@ -11,3 +11,9 @@ export const removeCart = (product) => {
         payload : product
     }
 }
+
+export const emptyCart = () => {
+    return {
+      type: "EMPTY_CART",
+    }
+}

@@ -8,6 +8,8 @@ const Navbar = () => {
 
     const token = localStorage.getItem('token');
 
+    const totalQuantity = state.reduce((total, item) => total + item.qty, 0);
+
     const handleLogout = () => {
         localStorage.removeItem('token');
         alert("Logout success!");
@@ -16,7 +18,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
+            <nav className="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm fixed-top">
                 <div className="container">
                     <NavLink className="navbar-brand fw-bold fs-4" to="/">
                         ShopSphere
@@ -44,7 +46,7 @@ const Navbar = () => {
                     <div className="button">
                         <NavLink to="/cart" className="btn btn-outline-dark me-2">
                             <i className='fa fa-shopping-cart me-1'></i>
-                            Cart ({state.length})
+                            Cart ({totalQuantity})
                         </NavLink>
 
                         {token ? (

@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addCart, removeCart } from "../redux/action";
+import { addCart, removeCart, emptyCart } from "../redux/action";
 import { Link, useNavigate } from "react-router-dom";
 
 const Cart = () => {
@@ -18,11 +18,16 @@ const Cart = () => {
 
   const handleCheckout = () => {
     if (state.length > 0) {
+      dispatch(emptyCart());
       alert("Checkout success! Redirecting to Home...");
       navigate("/");
     } else {
       alert("Cart empty, please select an item first.");
     }
+  };
+
+  const calculateTotalPrice = () => {
+    return state.reduce((total, product) => total + product.price * product.qty, 0);
   };
 
   const EmptyCart = () => (
@@ -73,6 +78,9 @@ const Cart = () => {
         </div>
       ))}
       <div className="text-end mt-4">
+        <h4>
+          Grand Total: <span className="fw-bold">${calculateTotalPrice().toFixed(2)}</span>
+        </h4>
         <button className="btn btn-primary" onClick={handleCheckout}>
           Checkout
         </button>
