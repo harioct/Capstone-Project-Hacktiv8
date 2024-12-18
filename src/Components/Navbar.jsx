@@ -12,33 +12,30 @@ const Navbar = () => {
 
     const handleLogout = () => {
         localStorage.removeItem('token');
-        alert("Logout success!");
         navigate("/login");
-    };
+    }
 
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm fixed-top">
+            <nav className="navbar navbar-expand-lg navbar-light bg-white py-0 shadow-sm fixed-top">
                 <div className="container">
-                    <NavLink className="navbar-brand fw-bold fs-4" to="/">
-                        ShopSphere
+                    <NavLink className="navbar-brand" to="/">
+                    <img src="/assets/logo.png" alt="Bootstrap" width="76" height="70" class="d-inline-block align-text-top" />
                     </NavLink>
 
                     <ul className="nav mx-auto mb-lg-0">
                         <li className="nav-item">
                             <NavLink
                                 className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
-                                to="/"
-                            >
+                                to="/">
                                 Home
                             </NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink
                                 className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
-                                to="/products"
-                            >
-                                Product
+                                to="/products">
+                                Products
                             </NavLink>
                         </li>
                     </ul>
@@ -67,7 +64,7 @@ const Navbar = () => {
                 </div>
             </nav>
         </div>
-    );
-};
+    )
+}
 
 export default Navbar;

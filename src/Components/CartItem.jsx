@@ -14,7 +14,7 @@ const CartItem = ({ item, updateQuantity }) => {
       setWarning(false);
     }
     updateQuantity(item.id, newQuantity);
-  };
+  }
 
   return (
     <div className="cart-item">
@@ -29,7 +29,7 @@ const CartItem = ({ item, updateQuantity }) => {
       />
       {warning && <p style={{ color: 'red' }}>Quantity exceeds stock!</p>}
     </div>
-  );
-};
+  )
+}
 
 export default CartItem;
