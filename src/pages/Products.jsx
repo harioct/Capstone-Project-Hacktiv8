@@ -63,7 +63,6 @@ const Products = () => {
 
     const ShowProducts = () => (
         <>
-            {/* Filter Buttons */}
             <div className="buttons d-flex justify-content-center mb-5 pb-3">
                 <button className="btn btn-outline-dark me-2" onClick={() => filterProduct("all")}>
                     All
@@ -82,7 +81,6 @@ const Products = () => {
                 </button>
             </div>
 
-            {/* Products Grid */}
             <div className="row row justify-content-center">
                 {filter.map((product) => (
                     <div className="col-md-3 mb-4" key={product.id}>

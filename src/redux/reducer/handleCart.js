@@ -6,12 +6,22 @@ const handleCart = (state = cart, action) => {
         case 'ADD_TO_CART':
             const exist = state.find((x) => x.id === product.id);
             if (exist) {
-                return state.map((x) => x.id === product.id ? {...x, qty: x.qty + 1} : x);
+                if (product.stock > exist.qty) {
+                    return state.map((x) =>
+                        x.id === product.id ? { ...x, qty: x.qty + 1 } : x
+                    );
+                } else {
+                    alert("Stock limit reached!");
+                    return state;
+                    }
             } else {
-                const product = action.payload;
-                return [...state, { ...product, qty: 1, }];
+                if (product.stock > 0) {
+                return [...state, { ...product, qty: 1 }];
+                } else {
+                alert("Product is out of stock!");
+                return state;
+                }
             }
-
 
         case 'REMOVE_FROM_CART':
             const item1 = state.find((x) => x.id === product.id);
@@ -20,6 +30,12 @@ const handleCart = (state = cart, action) => {
             } else {
                 return state.map((x) => x.id === product.id ? {...x, qty: x.qty - 1} : x);
             }
+
+        case "CHECKOUT_CART":
+            return state.map((item) => ({
+                ...item,
+                stock: item.stock - item.qty,
+            }));
 
         case "EMPTY_CART":
             return [];

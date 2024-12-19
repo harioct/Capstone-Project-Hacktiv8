@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useState, useEffect } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import { NavLink } from 'react-router-dom';
 
@@ -14,7 +15,7 @@ const Home = () => {
 
                 const filteredProducts = data.filter(
                     (product) => product.rating?.rate >= 4.5
-                );
+                )
 
                 setTopRatedProducts(filteredProducts);
                 setLoading(false);
@@ -48,10 +49,10 @@ const Home = () => {
                 </div>
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img src="/assets/img1.png" className="d-block w-100" alt="Slide 1" style={{ maxHeight: "600px", objectFit: "cover" }} />
+                        <img src="/assets/img1.png" className="d-block w-100" alt="Slide 1" style={{ maxHeight: "650px", objectFit: "cover" }} />
                     </div>
                     <div className="carousel-item">
-                        <img src="/assets/img2.png" className="d-block w-100" alt="Slide 2" style={{ maxHeight: "600px", objectFit: "cover" }} />
+                        <img src="/assets/img2.png" className="d-block w-100" alt="Slide 2" style={{ maxHeight: "650px", objectFit: "cover" }} />
                     </div>
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

@@ -17,3 +17,9 @@ export const emptyCart = () => {
       type: "EMPTY_CART",
     }
 }
+
+export const checkoutCart = () => {
+    return {
+      type: "CHECKOUT_CART",
+    }
+}  
