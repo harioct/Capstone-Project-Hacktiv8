@@ -57,7 +57,7 @@ const ProductDetail = () => {
     if (currentStock <= 0) {
       Swal.fire({
         title: "Out of Stock!",
-        text: `${product.title.substring(0, 20)}... is currently out of stock.`,
+        text: `"${product.title.substring(0, 20)}..." is currently out of stock.`,
         icon: "error",
       });
       return;
@@ -66,7 +66,7 @@ const ProductDetail = () => {
     dispatch(addCart({ ...product, qty: 1 }));
     Swal.fire({
       title: "Success!",
-      text: `${product.title.substring(0, 20)}... has been added to your cart.`,
+      text: `"${product.title.substring(0, 20)}..." has been added to your cart.`,
       icon: "success",
       confirmButtonText: "Go to Cart",
       showCancelButton: true,

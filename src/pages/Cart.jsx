@@ -17,18 +17,18 @@ const Cart = () => {
 
       Swal.fire({
         title: "Stock Limit Reached",
-        text: `You can't add more than ${currentStock} items for ${product.title}.`,
+        text: `You can't add more than ${currentStock} items for "${product.title.substring(0, 20)}...".`,
         icon: "warning",
       });
     } else {
       dispatch(addCart(product));
     }
-  };
+  }
   
 
   const handleRemove = (product) => {
     dispatch(removeCart(product));
-  };
+  }
 
   const handleCheckout = () => {
     if (state.length === 0) {
@@ -63,12 +63,12 @@ const Cart = () => {
     }).then(() => {
       navigate("/");
     });
-  };
+  }
     
 
   const calculateTotalPrice = () => {
     return state.reduce((total, product) => total + product.price * product.qty, 0);
-  };
+  }
 
   const EmptyCart = () => (
     <div className="container py-5 text-center">
@@ -77,7 +77,7 @@ const Cart = () => {
         Return to Home
       </Link>
     </div>
-  );
+  )
 
   const ShowCart = () => (
     <div className="container py-5">
@@ -126,9 +126,9 @@ const Cart = () => {
         </button>
       </div>
     </div>
-  );
+  )
 
   return <div>{state.length === 0 ? <EmptyCart /> : <ShowCart />}</div>;
-};
+}
 
 export default Cart;
