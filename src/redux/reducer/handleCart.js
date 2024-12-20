@@ -11,14 +11,12 @@ const handleCart = (state = cart, action) => {
                         x.id === product.id ? { ...x, qty: x.qty + 1 } : x
                     );
                 } else {
-                    alert("Stock limit reached!");
                     return state;
                     }
             } else {
                 if (product.stock > 0) {
                 return [...state, { ...product, qty: 1 }];
                 } else {
-                alert("Product is out of stock!");
                 return state;
                 }
             }
